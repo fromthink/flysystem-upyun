@@ -68,7 +68,7 @@ class UpyunAdapter implements FilesystemAdapter
      * @param Config $config
      * @throws \Exception
      */
-    public function write(string $path, string $contents, Config $config): void
+    public function write(string $path, string $contents, Config $config = null): void
     {
         $this->client()->write($path, $contents);
     }
@@ -79,7 +79,7 @@ class UpyunAdapter implements FilesystemAdapter
      * @param Config $config
      * @throws \Exception
      */
-    public function writeStream(string $path, $contents, Config $config): void
+    public function writeStream(string $path, $contents, Config $config = null): void
     {
         $this->write($path, $contents, $config);
     }
@@ -90,7 +90,7 @@ class UpyunAdapter implements FilesystemAdapter
      * @param Config $config
      * @throws \Exception
      */
-    public function update(string $path, $contents, Config $config): void
+    public function update(string $path, $contents, Config $config = null): void
     {
         $this->write($path, $contents, $config);
     }
@@ -102,7 +102,7 @@ class UpyunAdapter implements FilesystemAdapter
      * @param Config $config
      * @throws \Exception
      */
-    public function copy(string $source, string $destination, Config $config): void
+    public function copy(string $source, string $destination, Config $config = null): void
     {
         $this->writeStream($destination, fopen($this->getUrl($source), 'rb'), $config);
     }
@@ -130,7 +130,7 @@ class UpyunAdapter implements FilesystemAdapter
      * @param Config $config
      * @throws \Exception
      */
-    public function createDirectory($dirname, Config $config): void
+    public function createDirectory($dirname, Config $config = null): void
     {
         $this->client()->createDir($dirname);
     }
@@ -277,7 +277,7 @@ class UpyunAdapter implements FilesystemAdapter
      * @param Config $config
      * @throws \Exception
      */
-    public function move(string $source, string $destination, Config $config): void
+    public function move(string $source, string $destination, Config $config = null): void
     {
         $this->client()->move($source, $destination);
     }
