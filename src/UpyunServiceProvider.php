@@ -37,11 +37,11 @@ class UpyunServiceProvider extends ServiceProvider
                 $config['password'],$config['domain'],$config['protocol']
             );
 
-            $filesystem = new Filesystem($adapter);
+//            $filesystem = new Filesystem($adapter);
 
 //            $filesystem->addPlugin(new ImagePreviewUrl());
 
-            return $filesystem;
+            return $adapter;
         });
     }
 
