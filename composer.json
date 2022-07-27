@@ -1,0 +1,32 @@
+{
+    "name": "fromthink/flysystem-upyun",
+    "description": "Flysystem and Laravel adapter for the Upyun storage. updata from laravel 9",
+    "keywords": ["Laravel","upyun","又拍","又拍云"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JellyBool, Fromthik",
+            "email": "jellybool@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "fromthink/upyun-php-sdk": "^3.5.1"
+    },
+    "require-dev": {
+        "php": ">=5.6.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fromthink\\Flysystem\\Upyun\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Fromthink\\Flysystem\\Upyun\\UpyunServiceProvider"
+            ]
+        }
+    }
+}
