@@ -263,6 +263,15 @@ class UpyunAdapter implements FilesystemAdapter
     }
 
     /**
+     * @param $path
+     * @return string
+     */
+    public function url($path): string
+    {
+        return $this->getUrl($path);
+    }
+
+    /**
      * @param string $source
      * @param string $destination
      * @param Config $config
