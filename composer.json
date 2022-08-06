@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=8.0",
-        "fromthink/upyun-php-sdk": "^4"
+        "v012345/php-sdk": "^4"
     },
     "require-dev": {
         "php": ">=5.6.0",
