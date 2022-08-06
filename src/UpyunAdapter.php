@@ -294,7 +294,7 @@ class UpyunAdapter implements FilesystemAdapter
         $data['save-key'] = $path;
         $data['expiration'] = time() + $ttl;
         $data['bucket'] = $config->bucketName;
-        $data['policy'] = Util::base64Json($data);
+        $data['policy'] = \Upyun\Util::base64Json($data);
         $data['authorization'] = \Upyun\Signature::getBodySignature($config, 'POST', '/' . $data['bucket'], null, $data['policy']);
         $data['save_path'] = $data['save-key'];
         return $data;
