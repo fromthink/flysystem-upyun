@@ -287,6 +287,18 @@ class UpyunAdapter implements FilesystemAdapter
     {
         throw UnableToRetrieveMetadata::visibility($path);
     }
+    
+    public function getBodySignature(string $path, int $ttl = 1200): array
+    {
+        $config = new \Upyun\Config($this->bucket, $this->operator, $this->password);
+        $data['save-key'] = $path;
+        $data['expiration'] = time() + $ttl;
+        $data['bucket'] = $config->bucketName;
+        $data['policy'] = Util::base64Json($data);
+        $data['authorization'] = \Upyun\Signature::getBodySignature($config, 'POST', '/' . $data['bucket'], null, $data['policy']);
+        $data['save_path'] = $data['save-key'];
+        return $data;
+    }
 
 
     /**
